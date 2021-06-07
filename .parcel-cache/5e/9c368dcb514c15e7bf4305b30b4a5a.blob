@@ -1,0 +1,30 @@
+var _socketIoClient = require('socket.io-client');
+const joinRoomButton = document.getElementById('room-button');
+const messageInput = document.getElementById('message-input');
+const roomInput = document.getElementById('room-input');
+const form = document.getElementById('form');
+const socket = _socketIoClient.io('http://localhost:3000');
+// Can place smth in order to indicate that connection is established
+socket.on('connect', () => {});
+socket.on('receive-message', message => {
+  displayMessage(message);
+});
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  const message = messageInput.value;
+  const room = roomInput.value;
+  if (message === '') return;
+  displayMessage(message);
+  socket.emit('send-message', message);
+  messageInput.value = '';
+});
+joinRoomButton.addEventListener('click', () => {
+  const room = roomInput.value;
+});
+function displayMessage(message) {
+  console.log('Message', message);
+  const div = document.createElement('div');
+  div.textContent = message;
+  document.getElementById('message-container').append(div);
+}
+;

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script data-parcel-key="d982c2d43dd0e801d3515fd946213314">/script</script>
+    <style data-parcel-key="cdd1baffece2cf6c5cd3938a844e31ad">
+        body {
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+            width: 90%;
+            max-width: 1200px;
+        }
+        #message-container {
+            border: 1px solid black;
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+        #message-container div {
+            background-color: #CCC;
+            padding: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="message-container">
+        <form id="form" action="">
+        <label for="message-input">Message</label>
+        <input type="text" id="message-input">
+        <label for="room-input">Room</label>
+        <input type="text" id="room-input">
+        <button type="button" id="room-button">
+            Join
+        </button>
+        </form>
+    </div>
+</body>
+</html>
